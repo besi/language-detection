@@ -1,6 +1,6 @@
 {
-    "name": "unicate/packagist-test",
-    "description": "Test publishing on packagist.",
+    "name": "unicate/language-detection",
+    "description": "Simple language detection.",
     "type": "library",
     "license": "MIT",
     "require": {
