@@ -1,0 +1,21 @@
+{
+    "name": "unicate/packagist-test",
+    "description": "Test publishing on packagist.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.0"
+    },
+    "authors": [
+        {
+            "name": "unicate",
+            "email": "mail2mail@gmx.ch"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Unicate\\PackagistTest\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
