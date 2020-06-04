@@ -1,10 +1,10 @@
 # Language Detection
 
-Simple language detection, based on the following information.
-- Cookie:  
-- QueryParam:
-- UriPath: 
-- Accept-Language-Header:
+Chainable language detection.
+- Cookie
+- QueryParam
+- UriPath
+- Accept-Language-Header
 
 otherwise
 - set Default-Language
@@ -27,7 +27,8 @@ composer require unicate/language-detection
 
 require_once "vendor/autoload.php";
 
-$lang = new \Unicate\LanguageDetection\Detection();
-$lang->getLang();
+
+$langDetection = new \Unicate\LanguageDetection\LanguageDetection();
+$langDetection->byHeader()->byCookie()->byUri()->byParam()->getLang();
 
 ```
