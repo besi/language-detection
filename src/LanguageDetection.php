@@ -23,7 +23,10 @@ class LanguageDetection {
     public function byCookie(): LanguageDetection {
         $cookie = $this->request->getCookieParams();
         if (isset($cookie["lang"])) {
-            $this->lang = $cookie["lang"];
+            $lang = $cookie["lang"];
+            if (in_array($lang, $this->availableLang)) {
+                $this->lang = $lang;
+            }
         }
         return $this;
     }
@@ -31,7 +34,10 @@ class LanguageDetection {
     public function byParam(): LanguageDetection {
         $queryParam = $this->request->getQueryParams();
         if (array_key_exists('lang', $queryParam)) {
-            $this->lang = $queryParam['lang'];
+            $lang = $queryParam['lang'];
+            if (in_array($lang, $this->availableLang)) {
+                $this->lang = $lang;
+            }
         }
         return $this;
     }
@@ -41,7 +47,10 @@ class LanguageDetection {
         $uriArray = explode('/', $uriPath);
         $langArray = array_intersect($uriArray, $this->availableLang);
         if (!empty($langArray)) {
-            $this->lang = array_values($langArray)[0];
+            $lang = array_values($langArray)[0];
+            if (in_array($lang, $this->availableLang)) {
+                $this->lang = $lang;
+            }
         }
         return $this;
     }
@@ -50,9 +59,9 @@ class LanguageDetection {
         $header = $this->request->getHeader('accept-language');
         if (!empty($header)) {
             $acceptFromHttp = \Locale::acceptFromHttp($header[0]);
-            $headerLang = explode('_', $acceptFromHttp)[0];
-            if (in_array($headerLang, $this->availableLang)) {
-                $this->lang = $headerLang;
+            $lang = explode('_', $acceptFromHttp)[0];
+            if (in_array($lang, $this->availableLang)) {
+                $this->lang = $lang;
             }
         }
         return $this;

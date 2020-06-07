@@ -18,17 +18,25 @@ Use composer:
 composer require unicate/language-detection
 ```
 
-### Example
-
-#### v1.0
+### Usage
 
 ```php
 <?php
 
 require_once "vendor/autoload.php";
 
+$defaultLang = 'de';
+$availableLang = ['de', 'en', 'fr'];
 
-$langDetection = new \Unicate\LanguageDetection\LanguageDetection();
-$langDetection->byHeader()->byCookie()->byUri()->byParam()->getLang();
+$langDetection = new \Unicate\LanguageDetection\LanguageDetection($defaultLang, $availableLang);
+$lang = $langDetection->byHeader()->byCookie()->byUri()->byParam()->getLang();
+
+// Only by Param ?lang=en
+$langDetection = new \Unicate\LanguageDetection\LanguageDetection($defaultLang, $availableLang);
+$lang = $langDetection->byParam()->getLang();
+
+// Only by Uri /shop/en/article/3453452
+$langDetection = new \Unicate\LanguageDetection\LanguageDetection($defaultLang, $availableLang);
+$lang = $langDetection->byUri()->getLang();
 
 ```
