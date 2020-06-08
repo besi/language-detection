@@ -30,6 +30,7 @@ require_once "vendor/autoload.php";
 // Available Languages: First entry is assumed to be the default language.
 $availableLang = ['en', 'de', 'fr'];
 
+// All methods chained. The last method that detects a language wins.
 $langDetection = new \Unicate\LanguageDetection\LanguageDetection($availableLang);
 $lang = $langDetection->byHeader()->byCookie()->byUri()->byParam()->getLang();
 
