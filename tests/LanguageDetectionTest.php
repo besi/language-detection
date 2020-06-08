@@ -1,7 +1,6 @@
 <?php
 
 
-use Laminas\Diactoros\ServerRequestFactory;
 use Unicate\LanguageDetection\LanguageDetection;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +18,7 @@ class LanguageDetectionTest extends TestCase {
         // Set Defaults & create object
         $defaultLang = 'en';
         $availableLang = ['en', 'de', 'fr', 'it', 'es'];
-        $this->langDetection = new LanguageDetection($defaultLang, $availableLang);
+        $this->langDetection = new LanguageDetection($availableLang);
     }
 
     public function mockSetup2() {
@@ -32,7 +31,7 @@ class LanguageDetectionTest extends TestCase {
         // Set Defaults & create object
         $defaultLang = 'en';
         $availableLang = ['en', 'de', 'fr', 'it', 'es'];
-        $this->langDetection = new LanguageDetection($defaultLang, $availableLang);
+        $this->langDetection = new LanguageDetection($availableLang);
     }
 
 

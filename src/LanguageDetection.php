@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author https://unicate.ch
+ * @copyright Copyright (c) 2020
+ * @license Released under the MIT license
+ */
 
 declare(strict_types=1);
 
@@ -11,9 +16,15 @@ class LanguageDetection {
     private $availableLang;
     private $request;
 
-    public function __construct(string $defaultLang, array $availableLang) {
+    public function __construct(array $availableLang) {
+        if (empty($availableLang)) {
+            throw new \RuntimeException('Array must contain at least one Language-Code.');
+        }
         $this->availableLang = $availableLang;
-        $this->lang = $defaultLang;
+
+        // The first entry in $availableLang is assumed to be the default language.
+        $this->lang = $availableLang[0];
+
         $this->request = ServerRequestFactory::fromGlobals(
             $_SERVER, $_GET, $_COOKIE
         );
