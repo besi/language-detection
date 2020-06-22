@@ -1,6 +1,6 @@
 {
     "name": "unicate/language-detection",
-    "description": "Simple language detection.",
+    "description": "Chainable language detection.",
     "type": "library",
     "license": "MIT",
     "require": {
