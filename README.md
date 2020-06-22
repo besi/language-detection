@@ -1,6 +1,6 @@
+---
 
-
-## Language Detection
+# Language Detection
 
 The following different strategies are used to detect the language. 
 
