@@ -41,5 +41,5 @@ $lang = $langDetection->byParam()->getLang();
 // Only by Uri /shop/en/article/3453452
 $langDetection = new \Unicate\LanguageDetection\LanguageDetection($availableLang);
 $lang = $langDetection->byUri()->getLang();
-
+?>
 ```
